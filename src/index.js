@@ -2,6 +2,7 @@ const express = require("express");
 const { PORT } = require("./config/serverConfig")
 const bodyParser = require("body-parser");
 const { urlencoded } = require("body-parser");
+const db  = require('./models/index');
 
 
 const setupAndStartServer = async ()=> {
