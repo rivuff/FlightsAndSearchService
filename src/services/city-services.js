@@ -22,26 +22,32 @@ class CityService{
             
         } catch (error) {
             console.log("something went wrong in service layer");
+            throw {error}
         }
     }
 
     async updateCity(cityId, data){
         try {
-            const response = await this.cityRepository.updateCIty(cityId, data);
-            return response;
-        } catch (error) {
-            console.log("something went wrong in service layer");
-        }
-    }
-
-    async getCity(cityId){
-        try {
-            const city =await this.cityRepository.getCity(cityId);
+            const city = await this.cityRepository.updateCity(cityId, data);
             return city;
         } catch (error) {
             console.log("something went wrong in service layer");
+            throw {error}
         }
     }
+
+    async getCity(cityId) {
+        try {
+            const city = await this.cityRepository.getCity(cityId);
+            return city;
+        } catch (error) {
+            console.log("Something went wrong at service layer");
+            throw {error};
+        }
+    }
+
+    
+
 }
 
 module.exports = CityService
