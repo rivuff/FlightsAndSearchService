@@ -33,6 +33,27 @@ class FlightService{
         }
     }
 
+    async getFlight(flightId){
+        try {
+            const flight = await this.FlightRepositry.getFlight(flightId);
+            return flight;
+        } catch (error) {
+            console.log("something went wrong in service layer");
+            throw {error}
+        }
+    }
+
+    async updateFlight(flightId,data){
+        try {
+            const response = await this.FlightRepositry.updateFlight(flightId, data);
+            return response;
+        } catch (error) {
+            console.log("something went wrong in service layer");
+            throw {error}
+        }
+    }
+
+
 }
 
 

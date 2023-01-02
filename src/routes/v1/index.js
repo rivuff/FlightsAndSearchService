@@ -30,5 +30,7 @@ router.post('/flight',
         );
 
 router.get('/flight', flightcntroller.getAll)
+router.get('/flight/:id', flightcntroller.get)
+router.patch('/flight/:id', flightcntroller.update)
 
 module.exports = router;
